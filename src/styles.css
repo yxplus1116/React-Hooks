@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 10px;
+  background-color: #f5f5fa;
+  color: #222;
+}
+h2 {
+  margin-bottom: 20px;
+  font-family: 'Helvetica';
+  font-weight: 400;
+}
+.App {
+  font-family: 'Helvetica';
+  font-weight: 200;
+  text-align: left;
+  width: 400px;
+}
+input {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  width: 300px;
+}
+button {
+  padding: 5px 20px;
+  background: #0066cc;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 2px 4px #0044aa40;
+}
+button:active {
+  background: #0044aa;
+}
+button:focus {outline:0;}
+ul {
+  margin-left: 20px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.messages h1 {
+  margin-bottom: 20px;
+}
+.messages p {
+  margin-bottom: 10px;
+}
+.message {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+}
