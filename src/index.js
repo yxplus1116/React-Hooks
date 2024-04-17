@@ -1,29 +1,21 @@
-import React, { useReducer } from "react";
-import ReactDOM from "react-dom";
+import React, { createContext } from "react";
+import ReactDOM from "react-dom/client";
 import "./styles.css";
 
-const myReducer = (state, action) => {
-  switch (action.type) {
-    case "countUp":
-      return {
-        ...state,
-        count: state.count + 1,
-      };
-    default:
-      return state;
-  }
-};
-console.log();
-function App() {
-  const [state, dispatch] = useReducer(myReducer, { count: 0 });
+import UseContextComponents from "./components/useContext";
+console.log(ReactDOM);
 
+function App() {
   return (
     <div className="App">
-      <button onClick={() => dispatch({ type: "countUp" })}>+1</button>
-      <p>Count: {state.count}</p>
+      <h1>useReducer</h1>
+      <UseContextComponents />
+      <hr />
+
+      <h1>useContext</h1>
     </div>
   );
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+rootElement.render(<App />);
