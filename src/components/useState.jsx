@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-const useStateComponent = () => {
+const useStateComponent = (props) => {
+  // 第一个参数是 props，它是一个包含父组件传递给当前组件的所有属性的对象。
+  console.log(props);
   // 基础用法
   const [num, setNum] = useState(0);
   const add1 = () => {
@@ -10,11 +12,16 @@ const useStateComponent = () => {
     setNum(num - 1);
   };
 
+  const parentHandle = () => {
+    props.parentHandle();
+  };
+
   //   进阶用法
   const [pets, setPets] = useState({ dog: 0, cart: 0 });
 
   return (
     <>
+      <p onClick={parentHandle}>{props.parentData}</p>
       <div>
         <p>{num}</p>
         <button onClick={add1}>+</button>
