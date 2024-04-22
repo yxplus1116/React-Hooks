@@ -1,5 +1,52 @@
 # React Hooks
 
+#前言
+<a name="VJSSq"></a>
+# 一，类组件
+React 的核心是编写组件。分为类组件和函数组件，v16.8 版本之前，组件的标准写法是类（class），下面是一个简单的组件类：
+```
+
+import React, { Component } from "react";
+
+export default class Button extends Component {
+  constructor() {
+    super();
+    this.state = { buttonText: "Click me, please" };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState(() => {
+      return { buttonText: "Thanks, been clicked!" };
+    });
+  }
+  render() {
+    const { buttonText } = this.state;
+    return <button onClick={this.handleClick}>{buttonText}</button>;
+  }
+}
+```
+这个组件类仅仅是一个按钮，但它的代码已经很"重"了。真实的 React App 由多个类按照层级，一层层构成，复杂度成倍增长。再加入 Redux，就变得更复杂。<br />Redux 的作者 [总结](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889)了组件类的几个缺点：
+:::info
+
+- 大型组件很难拆分和重构，也很难测试。
+- 业务逻辑分散在组件的各个方法之中，导致重复逻辑或关联逻辑。
+- 组件类引入了复杂的编程模式，比如 render props 和高阶组件。
+:::
+
+<a name="HELzM"></a>
+# 二，函数组件
+React 团队希望，组件不要变成复杂的容器，最好只是数据流的管道。开发者根据需要，组合管道即可。 **组件的最佳写法应该是函数，而不是类。**<br />下面就是一个纯函数组件的例子：
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+但是，这种写法有重大限制，必须是纯函数，不能包含状态，也不支持生命周期方法，因此无法取代类。<br />**React Hooks 的设计目的，就是加强版函数组件，完全不使用"类"，就能写出一个全功能的组件。**
+<a name="XCoCf"></a>
+# Hooks 出现的目的：
+**React Hooks 的出现旨在加强函数组件的功能，使得纯函数组件能够更便捷地支持状态管理、生命周期等功能，从而不再局限于使用类组件的情况。**
+
+
 **什么是 React Hook？**
 
 Hook（钩子）是一种特殊的函数，它允许你“钩入”各种 React 特性。假设一个函数返回一个有两个值的数组：
