@@ -45,6 +45,7 @@ function Welcome(props) {
 <a name="XCoCf"></a>
 # Hooks 出现的目的：
 **React Hooks 的出现旨在加强函数组件的功能，使得纯函数组件能够更便捷地支持状态管理、生命周期等功能，从而不再局限于使用类组件的情况。**
+**v16.8+版本 主hooks 辅class**
 
 # 开始
 **什么是 React Hook？**
